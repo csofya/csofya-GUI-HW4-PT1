@@ -1,0 +1,208 @@
+<!-- File: index.html
+GUI Assignment: HW4 Using the jQuery Plugin/UI with Dynamic Multiplication Table
+     Create a dynamic table based on an HTML form using JavaScript
+Sofya Chow, Sofya_Chow@student.uml.edu
+Last Updated On: Nov 5, 2021    -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Multiplication Table</title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+        body {
+            background: url(images/super_mario.jpeg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        h {
+            font-family: monospace;
+            color: white;
+            font-size: 40px;
+            display: block;
+            text-align: center;
+            padding: 25px 50px 25px 50px;
+            border-bottom: 2px solid white;
+            border-bottom-width: 75%;
+            margin-bottom: 15px;
+        }
+
+        /* Header for the horizontal and vertical inputs */
+        p1 {
+            color: black;
+            font-family: monospace;
+            font-size: 17px;
+            text-align: center;
+            padding: 8px;
+            display: block;
+        }
+
+        /* Changes the container size of the input lines (including slider) */
+        .input_line {
+            margin: 0px 25px 0px 50px;
+        }
+
+        /* Lower bound / Upper bound */
+        p2 {
+            color: black;
+            font-family: monospace;
+            font-size: 18px;
+        }
+
+        /* Textfields */
+        input {
+            margin-left: 8px;
+            width: 30%;
+            height: 10%;
+            border-color: black;
+            border-style: solid;
+            border-radius: 8px;
+        }
+
+        /* Styles the text inside the textfields */
+        input[type="text"] {
+            color: black;
+            font-family: monospace;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        /* Form box */
+        #white-box {
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            width: 35%;
+            margin: 45px auto 50px 50px;
+            padding: 8px;
+            float: left;
+        }
+
+        #image {
+            border: 0;
+            width: 60px;
+            height: 70px;
+            display: block;
+        }
+
+        #multiplication_table {
+            background-color: white;
+            color: black;
+            border-radius: 10px;
+            margin: 45px auto 50px 50px;
+            padding: 8px;
+            float: left;
+            visibility: hidden;
+        }
+
+        td {
+            font-family: monospace;
+            font-size: 20px;
+            text-align: right;
+            margin: 0px;
+            width: 20px;
+        }
+
+        tr:nth-child(even) {
+            background-color: lightblue;
+        }
+
+        /* JQuery validator generates a label for each error message */
+        label.error {
+            color: red;
+            font-family: monospace;
+            font-size: 17px;
+            display: flex;
+            text-align: center;
+            padding: 8px;
+        }
+
+        /* Helps center divs like display:block and centered */
+        .flex-center {
+            display: flex;
+            min-height: 0px;
+            justify-content: center;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <h> MULTIPLICATION TABLE</h>
+    <!-- Each input will have a unique id, so when passed, the js can retrieve its values -->
+
+
+    <div id="white-box">
+        <form id="form_id">
+            <p1>Enter horizontal axis bounding numbers:</p1>
+            <div class="input_line">
+                <p2> Lower bound:</p2>
+                <input type='text' id="lower_horizontal" name="lower_horizontal">
+            </div>
+            <br>
+            <div class="input_line">
+                <p2> Upper bound:</p2>
+                <input type='text' id="upper_horizontal" name="upper_horizontal">
+            </div>
+            <br>
+            <p1>Enter vertical axis bounding numbers:</p1>
+            <div class="input_line">
+                <p2> Lower bound:</p2>
+                <input type='text' id="lower_vertical" name="lower_vertical">
+            </div>
+            <br>
+            <div class="input_line">
+                <p2> Upper bound:</p2>
+                <input type='text' id="upper_vertical" name="upper_vertical">
+            </div>
+            <div id="error_message"></div>
+            <div class="flex-center">
+                <input type="image" id="image" alt="Go" src="images/arrow.png">
+            </div>
+    </div>
+
+
+
+    <!-- <div class="white-box">
+        <form id="form_id">
+            <p1>Enter horizontal axis bounding numbers:</p1>
+            <div class="input_line">
+                <p2> Lower bound:</p2>
+                <input type='text' id="lower_horizontal" name="lower_horizontal">
+            </div>
+            <br>
+            <div class="input_line">
+                <p2> Upper bound:</p2>
+                <input type='text' id="upper_horizontal" name="upper_horizontal">
+            </div>
+            <br>
+            <p1>Enter vertical axis bounding numbers:</p1>
+            <div class="input_line">
+                <p2> Lower bound:</p2>
+                <input type='text' id="lower_vertical" name="lower_vertical">
+            </div>
+            <br>
+            <div class="input_line">
+                <p2> Upper bound:</p2>
+                <input type='text' id="upper_vertical" name="upper_vertical">
+            </div>
+            <div id="error_message"></div>
+            <input type="image" id="image" alt="Go" src="images/arrow.png">
+        </form>
+    </div> -->
+
+    <!-- Creating an empty/hidden table -->
+    <table id="multiplication_table"></table>
+    <!-- The order of the scripts are important, CDN enables JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+    <script src="js/myscript.js"></script>
+
+</body>
+
+</html>
