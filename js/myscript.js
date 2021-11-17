@@ -2,7 +2,7 @@
 // GUI Assignment: HW4 Using the jQuery Plugin/UI with Dynamic Multiplication Table
 //     Create a dynamic table based on an HTML form using JavaScript
 // Sofya Chow, Sofya_Chow@student.uml.edu
-// Last Updated On: Nov 5, 2021       
+// Last Updated On: Nov 16, 2021       
 
 $(document).ready(function () {
     // Added new rules to check if upper bound is less than lower bound
@@ -21,6 +21,10 @@ $(document).ready(function () {
             return (upper_ver > lower_ver) ? true : false;
         }, "The upper bound must be greater than the lower bound"
     );
+    // https://www.sitepoint.com/basic-jquery-form-validation-tutorial/
+    // This website helped teach me about rules and messages
+    // https://jazzteam.org/en/technical-articles/implementation-validation-with-jquery-validation-plugin/
+    // This website also listed out some common rules
     $("#form_id").validate({
         rules: {
             lower_horizontal: {
